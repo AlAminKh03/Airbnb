@@ -31,7 +31,7 @@ import {MagnifyingGlassCircleIcon,GlobeAltIcon,UserCircleIcon,Bars3Icon} from '@
             <p className=' font-semibold cursor-pointer hidden md:inline hover:bg-gray-100 p-2 rounded-full'>Become a host</p>
             <GlobeAltIcon className='h-5 cursor-pointer hover:bg-gray-100 rounded-full'/>
             <div className='flex border-2 rounded-full p-1 items-center space-x-2
-            cursor-pointer hover:shadow-md'>
+                cursor-pointer hover:shadow-md'>
                 <Bars3Icon className='h-5 text-gray-900'/>
                 <UserCircleIcon className='h-8 text-gray-500'/>
             </div>
