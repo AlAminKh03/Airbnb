@@ -6,19 +6,11 @@ import Image from 'next/image'
 const Banner:React.FC=() =>{
     const src='https://a0.muscache.com/im/pictures/5471ae21-17a7-4ba3-9a80-ddbf95b53d0a.jpg?im_w=1200'
   return (
-   <div className='relative h-auto  '>
-     <div className='hidden sm:inline-block'>
-        <Image  loader={()=>src} 
-        src='https://a0.muscache.com/im/pictures/5471ae21-17a7-4ba3-9a80-ddbf95b53d0a.jpg?im_w=1200'
-        alt='banner image' 
-        className="rounded-lg absolute left-1/3 "
-         width={800} height={650} >
-        </Image>
-        </div>
-        {/* form  */}
-        <div className='absolute z-10  rounded-xl shadow-2xl p-4 ml-5 md:top-24 md:left-24 bg-white'>
-            <p className='text-4xl font-bold'>Vacation rentals in all <br />over the world</p>
-            <p className='m-2 text-gray-500'>Book unique vacation rentals, houses, and more on Airbnb</p>
+    <div className='flex max-w-full h-full mt-2 mb-4 '>
+           {/* form  */}
+           <div className=' z-10 rounded-xl shadow-2xl p-4 mt-14 ml-48 mr-[-190px] bg-white w-[400px] h-[430px]'>
+                <p className='text-4xl font-bold'>Vacation rentals in all <br />over the world</p>
+                <p className='m-2 text-gray-500'>Book unique vacation rentals, houses, and more on Airbnb</p>
 
             {/* first part  */}
             <div className='border-2 rounded-lg m-0 p-0 '>
@@ -68,6 +60,15 @@ const Banner:React.FC=() =>{
             <button className=' p-4 text-white font-bold '>Search</button>
             </div>
         </div>
+        <div className='hidden sm:inline-block ml-24'>
+        <Image  loader={()=>src} 
+        src='https://a0.muscache.com/im/pictures/5471ae21-17a7-4ba3-9a80-ddbf95b53d0a.jpg?im_w=1200'
+        alt='banner image' 
+        className="rounded-lg "
+        width={800} height={650}>
+        </Image>
+        </div>
+     
    </div>
   )
 }
