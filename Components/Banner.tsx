@@ -8,7 +8,7 @@ const Banner:React.FC=() =>{
   return (
     <div className='flex max-w-full h-full mt-2 mb-4 '>
            {/* form  */}
-           <div className=' z-10 rounded-xl shadow-2xl p-4 mt-14 ml-48 mr-[-190px] bg-white w-[400px] h-[430px]'>
+           <div className=' z-10 rounded-xl shadow-2xl p-4 mt-14 md:ml-48 md:mr-[-190px] mx-auto bg-white w-[400px] h-[430px]'>
                 <p className='text-4xl font-bold'>Vacation rentals in all <br />over the world</p>
                 <p className='m-2 text-gray-500'>Book unique vacation rentals, houses, and more on Airbnb</p>
 

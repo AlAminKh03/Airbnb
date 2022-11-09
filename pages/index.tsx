@@ -38,10 +38,11 @@ const Home=({exploredData}:{ exploredData:PropsModel[]})=> {
       <Header/>
      
       <Banner/>
-     <main className='max-w-7xl h-screen px-8 sm:px-16 mx-auto'>
+     <main className='max-w-8xl h-screen px-8 sm:px-16 mx-auto ml-32'>
      <section className='pt-6'>
           <p className='text-4xl font-semibold pb-5'>Explore Nearby</p>
-          {exploredData.map(list=>{
+         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+         {exploredData.map(list=>{
             return(
               <SmallerCards
               key={list.img}
@@ -49,6 +50,10 @@ const Home=({exploredData}:{ exploredData:PropsModel[]})=> {
               />
             )
           })}
+         </div>
+        </section>
+        <section>
+          
         </section>
      </main>
 
