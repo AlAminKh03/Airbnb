@@ -8,7 +8,7 @@ import { PropsModel  } from '../Interfaces/Interfaces';
 const SmallerCards:React.FC<listProps>=({lists}) =>{
     const src=`${lists.img}`
   return (
-    <div className='flex space-x-2 items-center m-2 mb-4 cursor-pointer rounded-xl 
+    <div className='flex space-x-2 items-center mb-4 cursor-pointer rounded-xl 
     hover:scale-105 hover:bg-gray-100 transition transform duration-150 ease-out'>
     {/* for pictures  */}
     <div className='relative h-16 w-16'>
