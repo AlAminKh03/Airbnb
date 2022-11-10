@@ -18,25 +18,25 @@ import {MagnifyingGlassCircleIcon,GlobeAltIcon,UserCircleIcon,Bars3Icon} from '@
 
 
 {/* searchbar  */}
-<div className='flex items-center border-2 rounded-full py-1 md:shadow-sm 
-hover:md:shadow-md hover:transition-all'>
-    <input className=' flex-grow outline-none bg-transparent pl-3 text-sm text-gray-600
-    placeholder-gray-400' type="text" placeholder='Find your destination' />
-    <MagnifyingGlassCircleIcon 
-    className='h-8 hidden md:inline-flex text-red-500  rounded-full pl-1.5 pr-1.5 '/>
-</div>
+            <div className='flex items-center border-2 rounded-full py-1 md:shadow-sm 
+                hover:md:shadow-md hover:transition-all'>
+            <input className=' flex-grow outline-none bg-transparent pl-3 text-sm text-gray-600
+             placeholder-gray-400' type="text" placeholder='Find your destination' />
+            <MagnifyingGlassCircleIcon 
+            className='h-8 hidden md:inline-flex text-red-500  rounded-full pl-1.5 pr-1.5 '/>
+            </div>
 
-{/* login  */}
-<div className='flex items-center space-x-4 justify-end'>
-    <p className=' font-semibold cursor-pointer hidden md:inline hover:bg-gray-100 p-2 rounded-full'>Become a host</p>
-    <GlobeAltIcon className='h-5 cursor-pointer hover:bg-gray-100 rounded-full'/>
-    <div className='flex border-2 rounded-full p-1 items-center space-x-2
-    cursor-pointer hover:shadow-md'>
-    <Bars3Icon className='h-5 text-gray-900'/>
-    <UserCircleIcon className='h-8 text-gray-500'/>
-    </div>
-</div>
-</header>
-  )
+            {/* login  */}
+            <div className='flex items-center space-x-4 justify-end'>
+                <p className=' font-semibold cursor-pointer hidden md:inline hover:bg-gray-100 p-2 rounded-full'>Become a host</p>
+                <GlobeAltIcon className='h-5 cursor-pointer hover:bg-gray-100 rounded-full'/>
+                <div className='flex border-2 rounded-full p-1 items-center space-x-2
+                cursor-pointer hover:shadow-md'>
+                <Bars3Icon className='h-5 text-gray-900'/>
+                <UserCircleIcon className='h-8 text-gray-500'/>
+            </div>
+            </div>
+        </header>
+        )
 }
 export default Header;

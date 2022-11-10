@@ -8,6 +8,7 @@ import MediumCards from '../Components/MediumCards'
 import SmallerCards from '../Components/SmallerCards'
 import { PropsModel } from '../Interfaces/Interfaces'
 import { PropsForMediumCard } from '../Interfaces/Interfaces'
+import LargeCard from '../Components/LargeCard'
 
 interface HomeProps{
   exploredData:PropsModel[]
@@ -52,8 +53,8 @@ export const getStaticProps:GetStaticProps=async()=>{
       <Header/>
      
       <Banner/>
-     <main className='max-w-8xl h-screen px-8 sm:px-16 mx-auto ml-32'>
-        <section className='pt-6 mt-6'>
+     <main className='max-w-7xl mx-auto px-8 sm:px-16 sm:ml-14'>
+        <section className='pt-6'>
           <p className='text-4xl font-semibold pb-5'>Explore Nearby</p>
          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
          {exploredData.map(list=>{
@@ -81,8 +82,9 @@ export const getStaticProps:GetStaticProps=async()=>{
             })}
            </div>
         </section>
+        <LargeCard/>
      </main>
-
+    
     </div>
   )
 }
