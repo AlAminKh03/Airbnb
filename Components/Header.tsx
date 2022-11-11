@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import {MagnifyingGlassCircleIcon,GlobeAltIcon,UserCircleIcon,Bars3Icon} from '@heroicons/react/24/solid'
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { DateRangePicker } from 'react-date-range';
+
 
 
 
  const Header:React.FC=() =>{
+    const [searchInput, setSearchInput] =useState<string>('')
+    const [startDate,setStartDate] = useState<Date>(new Date())
+    const [endDate,setEndDate] = useState<Date>(new Date())
+
+    const selectionRange = {
+        startDate: startDate,
+        endDate: endDate,
+        key: 'selection',
+      }
+
+      const handleChange =(ranges:any)=>{
+        console.log(ranges)
+        setStartDate(ranges.selection.startDate)
+        setEndDate(ranges.selection.endDate)
+      }
+
     const src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png' 
   
     return (
@@ -17,11 +37,16 @@ import {MagnifyingGlassCircleIcon,GlobeAltIcon,UserCircleIcon,Bars3Icon} from '@
             </div>
 
 
-{/* searchbar  */}
+            {/* searchbar  */}
             <div className='flex items-center border-2 rounded-full py-1 md:shadow-sm 
                 hover:md:shadow-md hover:transition-all'>
-            <input className=' flex-grow outline-none bg-transparent pl-3 text-sm text-gray-600
-             placeholder-gray-400' type="text" placeholder='Find your destination' />
+            <input 
+            value={searchInput}
+            onChange={(e)=>setSearchInput(e.target.value)}
+            className=' flex-grow outline-none bg-transparent pl-3 text-sm text-gray-600
+             placeholder-gray-400 placeholder-text-xs' 
+             type="text" 
+             placeholder='Find your destination'  />
             <MagnifyingGlassCircleIcon 
             className='h-8 hidden md:inline-flex text-red-500  rounded-full pl-1.5 pr-1.5 '/>
             </div>
@@ -36,6 +61,13 @@ import {MagnifyingGlassCircleIcon,GlobeAltIcon,UserCircleIcon,Bars3Icon} from '@
                 <UserCircleIcon className='h-8 text-gray-500'/>
             </div>
             </div>
+            {searchInput&& 
+            <DateRangePicker
+            ranges={[selectionRange]}
+            minDate={new Date()}
+            rangeColors={["#FD5861"]}
+            onChange={handleChange}
+            />}
         </header>
         )
 }

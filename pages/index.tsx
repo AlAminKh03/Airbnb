@@ -9,6 +9,7 @@ import SmallerCards from '../Components/SmallerCards'
 import { PropsModel } from '../Interfaces/Interfaces'
 import { PropsForMediumCard } from '../Interfaces/Interfaces'
 import LargeCard from '../Components/LargeCard'
+import Footer from '../Components/Footer'
 
 interface HomeProps{
   exploredData:PropsModel[]
@@ -72,7 +73,7 @@ export const getStaticProps:GetStaticProps=async()=>{
           <p className='text-4xl font-semibold pb-5'>Live Anywhere</p>
            <div className='flex space-x-3 overflow-scroll scrollbar-hide p-3'>
            {mediumCardData?.map(mediumData=>{
-              console.log(mediumData.img)
+              // console.log(mediumData.img)
               return(
                 <MediumCards 
                 key={mediumData.img}
@@ -84,7 +85,7 @@ export const getStaticProps:GetStaticProps=async()=>{
         </section>
         <LargeCard/>
      </main>
-    
+    <Footer/>
     </div>
   )
 }
