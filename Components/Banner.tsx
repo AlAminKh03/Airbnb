@@ -42,17 +42,17 @@ const Banner:React.FC=() =>{
             {/* third part  */}
             <div className='flex mb-1'>
             <div className='border-2 rounded-lg m-0 p-0 '>
-                    <p className='text-sm font-bold p-1.5 pl-3'>CHECK OUT</p>
+                    <p className='text-sm font-bold p-1.5 pl-3'>NUMBER OF GUESTS</p>
                         <div>
                         <input className='outline-none bg-transparent pl-3 text-sm text-gray-600 placeholder-gray-400'
-                        type="text" placeholder='Add Date' />
+                        type="number" min={1} placeholder='number of guest' />
                         </div>
                 </div>
                 <div className='border-2 rounded-lg m-0 p-0 '>
-                    <p className='text-sm font-bold p-1.5 pl-3'>CHECK OUT</p>
+                    <p className='text-sm font-bold p-1.5 pl-3'>Children</p>
                         <div>
                         <input className='outline-none bg-transparent pl-3 text-sm text-gray-600 placeholder-gray-400'
-                        type="text" placeholder='Add Date' />
+                        type="number" placeholder='Add Date' />
                         </div>
                 </div>
             </div>

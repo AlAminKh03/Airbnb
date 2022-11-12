@@ -1,29 +1,46 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
-import {MagnifyingGlassCircleIcon,GlobeAltIcon,UserCircleIcon,Bars3Icon} from '@heroicons/react/24/solid'
+import {
+  MagnifyingGlassCircleIcon,
+  GlobeAltIcon,
+  UserCircleIcon,
+  Bars3Icon,
+  UserIcon} from '@heroicons/react/24/solid'
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import { DateRangePicker } from 'react-date-range';
+import { DateRangePicker, RangeKeyDict } from 'react-date-range';
+import { useRouter } from 'next/router';
+
+interface RangeProps{
+   startDate: Date
+   endDate: Date
+   key:string
+}
 
 
-
-
- const Header:React.FC=() =>{
+ const Header:React.FC=():JSX.Element =>{
     const [searchInput, setSearchInput] =useState<string>('')
     const [startDate,setStartDate] = useState<Date>(new Date())
     const [endDate,setEndDate] = useState<Date>(new Date())
+    const [numOfGuest, setnumOfGuest] = useState<number>(1)
 
-    const selectionRange = {
+    const selectionRange :RangeProps = {
         startDate: startDate,
         endDate: endDate,
         key: 'selection',
       }
 
-      const handleChange =(ranges:any)=>{
+      const handleChange=(ranges:any)=>{
         console.log(ranges)
         setStartDate(ranges.selection.startDate)
         setEndDate(ranges.selection.endDate)
       }
+
+      const handleCancleButton=()=>{
+        setSearchInput("")
+      }
+
+      const router = useRouter()
 
     const src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png' 
   
@@ -31,7 +48,7 @@ import { DateRangePicker } from 'react-date-range';
          <header className='sticky top-0 z-50 grid grid-cols-3 shadow-md bg-white p-4 md:px-10'>
 
 {/* logo  */}
-            <div className='relative flex items-center h-7 mt-2'>
+            <div onClick={()=>router.push('/')} className='relative flex items-center h-7 mt-2'>
             <Image className='cursor-pointer object-contain object-left' loader={()=>src } src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png' 
                 alt='airbnb logo' layout='fill' ></Image>
             </div>
@@ -43,8 +60,8 @@ import { DateRangePicker } from 'react-date-range';
             <input 
             value={searchInput}
             onChange={(e)=>setSearchInput(e.target.value)}
-            className=' flex-grow outline-none bg-transparent pl-3 text-sm text-gray-600
-             placeholder-gray-400 placeholder-text-xs' 
+            className=' flex-grow outline-none bg-transparent pl-3 text-xs text-gray-600
+             placeholder-gray-400' 
              type="text" 
              placeholder='Find your destination'  />
             <MagnifyingGlassCircleIcon 
@@ -62,12 +79,26 @@ import { DateRangePicker } from 'react-date-range';
             </div>
             </div>
             {searchInput&& 
-            <DateRangePicker
+          <div className='flex flex-col col-span-3 m-auto'>
+              <div >
+              <DateRangePicker
             ranges={[selectionRange]}
             minDate={new Date()}
             rangeColors={["#FD5861"]}
             onChange={handleChange}
-            />}
+            />
+              </div>
+          <div className='flex border-b mb-4'>
+                <p className='text-xl font-semibold flex-grow'>Number of guests</p>
+                <UserIcon className='h-4 pr-3'/>
+                <input type="number" min={1} value={numOfGuest} className='outline-none w-12 h-4 text-lg text-red-400'/>
+          </div>
+
+          <div className='flex'>
+            <button className='flex-grow text-gray-500'onClick={handleCancleButton}>Cancel</button>
+            <button className='flex-grow text-red-400'>Search</button>
+          </div>
+      </div> }
         </header>
         )
 }
