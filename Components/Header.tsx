@@ -18,12 +18,15 @@ interface RangeProps{
 }
 
 
+
+// ****FUNCTION START 
  const Header:React.FC=():JSX.Element =>{
     const [searchInput, setSearchInput] =useState<string>('')
     const [startDate,setStartDate] = useState<Date>(new Date())
     const [endDate,setEndDate] = useState<Date>(new Date())
     const [numOfGuest, setnumOfGuest] = useState<number>(1)
 
+    
     const selectionRange :RangeProps = {
         startDate: startDate,
         endDate: endDate,
@@ -36,14 +39,26 @@ interface RangeProps{
         setEndDate(ranges.selection.endDate)
       }
 
-      const handleCancleButton=()=>{
+      const handleCancleButton:React.MouseEventHandler<HTMLButtonElement>=()=>{
         setSearchInput("")
       }
+      
+      const searchHandle:React.MouseEventHandler<HTMLButtonElement> =()=>{
+      router.push({
+      pathname:'/search',
+      query:{
+        location:searchInput,
+        startDate:startDate.toISOString(),
+        endDate:endDate.toISOString(),
+        numOfGuest:numOfGuest
+      }
+})}
 
       const router = useRouter()
-
-    const src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png' 
+      const src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png' 
   
+      // **RETURN STATEMENT 
+
     return (
          <header className='sticky top-0 z-50 grid grid-cols-3 shadow-md bg-white p-4 md:px-10'>
 
@@ -91,12 +106,13 @@ interface RangeProps{
           <div className='flex border-b mb-4'>
                 <p className='text-xl font-semibold flex-grow'>Number of guests</p>
                 <UserIcon className='h-4 pr-3'/>
-                <input type="number" min={1} value={numOfGuest} className='outline-none w-12 h-4 text-lg text-red-400'/>
+                <input type="number" min={1} value={numOfGuest} onChange={(e)=>setnumOfGuest(parseInt(e.target.value))}
+                className='outline-none w-12 h-4 text-lg text-red-400'/>
           </div>
 
           <div className='flex'>
-            <button className='flex-grow text-gray-500'onClick={handleCancleButton}>Cancel</button>
-            <button className='flex-grow text-red-400'>Search</button>
+            <button onClick={handleCancleButton} className='flex-grow text-gray-500'>Cancel</button>
+            <button onClick={searchHandle} className='flex-grow text-red-400'>Search</button>
           </div>
       </div> }
         </header>
