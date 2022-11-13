@@ -15,17 +15,22 @@ const Search=()=> {
     const router = useRouter()
     const {location,startDate,endDate,numOfGuest}= router.query;
 
+    console.log(startDate)
+    console.log(endDate)
 
-    const formattedStartDate = format(new Date(startDate), "dd MMMM yy")
+    const formattedEndDate = endDate?.slice(4)
+    const formattedStartDate = startDate?.slice(4)
+      
 
-    const formattedEndDate = format(new Date(endDate), "dd MMMM yy")
+
+    const rangeofDate = `${formattedStartDate} -- ${formattedEndDate}`
   return (
    <div>
-    <Header />
+    <Header placeholder={`${location} | ${rangeofDate} | ${numOfGuest} Guests`} />
    <main>
     <section className='pt-12 pl-6 pb-4 space-y-3'>
 
-        <p className='text-xs font-semibold'>300+ satys for number of {numOfGuest} guests</p>
+        <p className='text-xs font-semibold'>300+ satys for number of {numOfGuest} guests from {rangeofDate}</p>
         <p className='text-xl font-bold'>Stays in {location}</p>
       
       <div className=' hidden lg:inline-flex space-x-2'>

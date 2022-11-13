@@ -16,11 +16,14 @@ interface RangeProps{
    endDate: Date
    key:string
 }
+interface PlaceholderProps{
+  placeholder: string
+}
 
 
 
 // ****FUNCTION START 
- const Header:React.FC=():JSX.Element =>{
+ const Header:React.FC<PlaceholderProps>=({placeholder}):JSX.Element =>{
     const [searchInput, setSearchInput] =useState<string>('')
     const [startDate,setStartDate] = useState<Date>(new Date())
     const [endDate,setEndDate] = useState<Date>(new Date())
@@ -48,8 +51,8 @@ interface RangeProps{
       pathname:'/search',
       query:{
         location:searchInput,
-        startDate:startDate.toISOString(),
-        endDate:endDate.toISOString(),
+        startDate:startDate.toDateString(),
+        endDate:endDate.toDateString(),
         numOfGuest:numOfGuest
       }
 })}
@@ -78,7 +81,7 @@ interface RangeProps{
             className=' flex-grow outline-none bg-transparent pl-3 text-xs text-gray-600
              placeholder-gray-400' 
              type="text" 
-             placeholder='Find your destination'  />
+             placeholder={placeholder || 'Find your destination'}  />
             <MagnifyingGlassCircleIcon 
             className='h-8 hidden md:inline-flex text-red-500  rounded-full pl-1.5 pr-1.5 '/>
             </div>
