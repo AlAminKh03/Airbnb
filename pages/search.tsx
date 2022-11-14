@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import Footer from '../Components/Footer'
 import Header from '../Components/Header'
+import Map from '../Components/Mapsetting'
 import SearchData from '../Components/SearchData'
 import { SearchDataProps } from '../Interfaces/Interfaces'
 
@@ -51,7 +52,10 @@ const Search:React.FC<SearchInputProps>=({searchInput}):JSX.Element=> {
         <p className='button'>More filters</p>
       </div>
     </section>
-    <div>
+    
+
+<div className='flex justify-between'>
+<div className='flex-grow'>
       {searchInput?.map((data)=>{
         return(
         <SearchData
@@ -60,8 +64,16 @@ const Search:React.FC<SearchInputProps>=({searchInput}):JSX.Element=> {
         />
         )
       })}
+    </div>  
+    
+
+    <div className='hidden lg:inline-flex lg:flex-shrink-0'>
+        <Map/>
     </div>
+</div>
+
    </main>
+
    <Footer/>
    </div>
   )

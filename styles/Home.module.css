@@ -127,3 +127,9 @@
     filter: invert(1);
   }
 }
+
+.map{
+width:50vw;
+height: 250vh;
+z-index: 2;
+}
