@@ -21,11 +21,11 @@ interface HomeProps{
 export const getStaticProps:GetStaticProps=async()=>{
   const response= await fetch('https://www.jsonkeeper.com/b/4G1G')
   const data :PropsModel[]= await response.json()
-  // console.log( data);
+ 
 
   const responseForMediumCard = await fetch('https://www.jsonkeeper.com/b/VHHT')
   const dataForMediumCard : PropsForMediumCard[]= await responseForMediumCard.json()
-  console.log(dataForMediumCard);
+ 
   if(!data){
     return {
      notFound: true
@@ -59,7 +59,7 @@ export const getStaticProps:GetStaticProps=async()=>{
           <p className='text-4xl font-semibold pb-5'>Explore Nearby</p>
          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
          {exploredData.map(list=>{
-          // console.log(list)
+     
             return(
               <SmallerCards
               key={list.img}
@@ -73,7 +73,7 @@ export const getStaticProps:GetStaticProps=async()=>{
           <p className='text-4xl font-semibold pb-5'>Live Anywhere</p>
            <div className='flex space-x-3 overflow-scroll scrollbar-hide p-3'>
            {mediumCardData?.map(mediumData=>{
-              // console.log(mediumData.img)
+             
               return(
                 <MediumCards 
                 key={mediumData.img}

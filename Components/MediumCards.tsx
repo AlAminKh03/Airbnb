@@ -9,7 +9,7 @@ interface MProps{
 
 const MediumCards:React.FC<MProps>=({mediumData})=> {
     const src= `${mediumData.img}`
-    console.log(mediumData.img)
+    // console.log(mediumData.img)
   return (
 <div className=' hover:scale-105 transition transform ease-out   '>
   <div className='relative w-60 h-60'>
