@@ -1,8 +1,8 @@
 import React from 'react'
 
-type Props = {}
 
-const Footer=({}: Props)=> {
+
+const Footer=()=> {
   return (
    <section>
    

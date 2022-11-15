@@ -31,7 +31,6 @@ export const getStaticProps:GetStaticProps=async()=>{
      notFound: true
     }
   }
-  console.log(dataForMediumCard);
 
   return{
     props:{

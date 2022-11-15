@@ -15,7 +15,6 @@ interface SearchInputProps{
 export const getServerSideProps:GetServerSideProps=async()=>{
  const searchUrl = await fetch('https://www.jsonkeeper.com/b/5NPS')
 const searchData:SearchDataProps[] =await searchUrl.json()
-console.log(searchData)
 return {
   props: {
     searchInput:searchData
@@ -26,9 +25,6 @@ return {
 const Search:React.FC<SearchInputProps>=({searchInput}):JSX.Element=> {
     const router = useRouter()
     const {location,startDate,endDate,numOfGuest}= router.query;
-
-    console.log(startDate)
-    console.log(endDate)
 
     const formattedEndDate = endDate?.slice(4)
     const formattedStartDate = startDate?.slice(4)

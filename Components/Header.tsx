@@ -37,7 +37,6 @@ interface PlaceholderProps{
       }
 
       const handleChange=(ranges:any)=>{
-        console.log(ranges)
         setStartDate(ranges.selection.startDate)
         setEndDate(ranges.selection.endDate)
       }
